@@ -7,3 +7,11 @@
 body {
   background: #fff;
 }
+
+footer section p{
+    padding: 50px 0;
+    line-height: 1.5em;
+    text-align: center;
+    color: #aaa;
+  }
+  

@@ -33,6 +33,13 @@ const addNumbers = (num, arr, times, callback) => {
     return arr; 
 };
 
+// or const addNumbers = {
+//     for( let i = 0; i<times;i++) {
+//         callback(arr,num);
+//     }
+//     return arr;
+// }
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 Write a function named removeOne that takes in a number and an array. If the number divided by three has a remainder of two, pop one element off of the array.
@@ -73,7 +80,7 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   arr.forEach(element => {
-      if ( element % 3 === 2) {
+      if (element % 3 === 2) {
           arr.pop();
       }
     });
@@ -131,6 +138,19 @@ const fizzbuzz = (arr) => {
     return out;
 };
 
+//or arr.map(num => {
+//     if (num % 15 === 0) {
+//         out.push('Fizz Buzz');
+//     }
+//     else if (num % 3 === 0) {
+//         out.push('Fizz');
+//     }
+//     else if (num % 5 === 0) {
+//         out.push('Buzz');
+//       }
+//   });
+//   return out;
+// };
 /* ------------------------------------------------------------------------------------------------
 TESTS
 All the code below will verify that your functions are working to solve the challenges.

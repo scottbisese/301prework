@@ -42,11 +42,16 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const removeOne = (num, arr) => {
-  // Solution code here...
+  if (num % 3 === 2 ) {
+      arr.pop();
+  }
 };
 
 const removeElements = (arr, callback) => {
-  // Solution code here...
+  for (const element of arr) {
+      callback(element, arr);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,7 +60,8 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  // Solution code here...
+  arr.forEach(element => callback(element, arr));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -66,7 +72,12 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  // Solution code here...
+  arr.forEach(element => {
+      if ( element % 3 === 2) {
+          arr.pop();
+      }
+    });
+    return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -83,8 +94,14 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-const createList = (availableItems) => {
-  // Solution code here...
+const createList = (currentInv) => {
+  const availableInventory = [];
+  currentInv.forEach(item => {
+      if (item.available) {
+          availableInventory.push(item.name);
+      }
+    });
+    return availableInventory;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -99,7 +116,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+    const out = [];
+  arr.forEach(num => { 
+      if (num % 15 === 0) {
+          out.push('Fizz Buzz');
+      }
+      else if (num % 3 === 0) {
+          out.push('Fizz');
+      }
+      else if (num % 5 === 0) {
+          out.push('Buzz');
+        }
+    });
+    return out;
 };
 
 /* ------------------------------------------------------------------------------------------------

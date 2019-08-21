@@ -13,7 +13,11 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
   finalExam: true };
 
 const getCourseKeys = (obj) => {
-  // Solution code here...
+  const elements = [];
+  for (let elements in obj) {
+    properties.push(elements);
+  }
+  return elements;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,7 +74,9 @@ let characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  arr.forEach(character => {
+    houses.push(character.house);
+  });
   return houses;
 };
 
@@ -87,7 +93,17 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  for (let i=0; i<arr.length; i++) {
+    let values = Object.values(arr[i]);
+    if (values[0] === character) {  //not sure why this line is needed
+    if(values[2].length < 1) {
+      return false;
+    }
+    else {
+      return true;
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -99,7 +115,16 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].name === character) {      //still confused about this line
+      if (arr[i].children.length < 1) {
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,7 +134,17 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let numberOfCharacters = 0;
+  arr.forEach(house => {
+    numberOfCharacters++;
+    if (house.spouse) {
+      numberOfCharacters++;
+    }
+    for (let i = 0; i < house.children.length; i++){
+      numberOfCharacters++;
+    }
+  });
+  return numberOfCharacters;
 };
 
 /* ------------------------------------------------------------------------------------------------
